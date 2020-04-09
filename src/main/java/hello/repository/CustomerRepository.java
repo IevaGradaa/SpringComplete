@@ -18,8 +18,8 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
     Customer findCustomerById(Long id);
     List<Customer> findBySearchKey(String searchKey);
     List<Customer> findByFirstNameAndLastName(String firstName, String lastName);
-    //@Modifying
-    //@Query("update Customer u set u.firstName = ?1, u.lastName = ?2 where u.id = ?3")
+    @Modifying
+    @Query("update Customer u set u.firstName = ?1, u.lastName = ?2 where u.id = ?3")
     void setUserInfoById( String firstname, String lastname,Long id);
 
 }
