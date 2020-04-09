@@ -23,7 +23,7 @@ public class CustomerMapper {
 
     //TODO: Implement method that maps dto to entity
     public Customer map(CustomerDto customerDto) {
-        Customer customer = new Customer(customerDto.getFirstName(), customerDto.getLastName());
+        Customer customer = new Customer(customerDto.getId(),customerDto.getFirstName(), customerDto.getLastName());
         return customer;
     }
 

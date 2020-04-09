@@ -48,14 +48,15 @@ public class CustomerController {
     //TODO: Create POST method to saves new customer
     @RequestMapping(value = "/customer/post", method = RequestMethod.POST)
     @ResponseBody
-    public void postCustomer(@RequestParam CustomerDto customerDto) {
+    public void postCustomer(@RequestBody CustomerDto customerDto) {
         customerService.saveCustomer(customerDto);
+
     }
 
     //TODO: Create PUT method to update existing customer. Note! If user tries to update not existing customer, throw an exception
     @RequestMapping(value = "/customer/put", method = RequestMethod.PUT)
     @ResponseBody
-    public void putCustomer(CustomerDto customerDto) {
+    public void putCustomer(@RequestBody CustomerDto customerDto) {
         if (customerService.getCustomerById((customerDto.getId())) == null) {
             throw new NullPointerException();
         } else {
@@ -69,15 +70,15 @@ public class CustomerController {
     //TODO: Create DELETE method that deletes customer by id
     @RequestMapping(value = "/customer/delete", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteCustomerById(Long id) {
-        customerService.deleteCustomerById(id);
+    public void deleteCustomerById(@RequestParam Long ID) {
+        customerService.deleteCustomerById(ID);
     }
 
 
     //TODO: Create DELETE method that deletes customer by any other key
     @RequestMapping(value = "/customer/deleteByKey", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteCustomerByKey(String key) {
-        customerService.deleteCustomerByKey(key);
+    public void deleteCustomerByKey(@RequestParam String firstName, @RequestParam String lastName) {
+        customerService.deleteCustomerByKey(firstName, lastName);
     }
 }

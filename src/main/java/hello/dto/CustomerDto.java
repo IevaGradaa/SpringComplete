@@ -9,14 +9,20 @@ import javax.persistence.Id;
 
 @Component
 public class CustomerDto //implements CustomerRepository
-         {
+{
     public CustomerDto() {
     }
 
     //TODO: Fill with data corresponding to Customer entity
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public CustomerDto(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     private String firstName;
     private String lastName;
 

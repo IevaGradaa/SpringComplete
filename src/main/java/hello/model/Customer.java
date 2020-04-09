@@ -31,6 +31,11 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public Customer(Long id,String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+    }
 
     @Override
     public String toString() {
@@ -55,16 +60,16 @@ public class Customer {
 
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 }
 
